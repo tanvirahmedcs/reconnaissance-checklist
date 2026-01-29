@@ -1,0 +1,71 @@
+**1. Passive Recon (High‑Intensity OSINT)**
+whois: whois example.com  
+dig: dig example.com ANY  
+dig MX: dig example.com mx  
+dig AAAA: dig example.com AAAA  
+nslookup: nslookup example.com  
+dnsrecon: dnsrecon -d example.com  
+theHarvester: theHarvester -d example.com  
+wafw00f: wafw00f https://example.com
+
+**2. Subdomain Enumeration (Broad Surface Discovery)**
+subfinder: subfinder -d example.com -all  
+amass: amass enum -passive -d example.com  
+github-subdomains: github-subdomains -d example.com  
+gitlab-subdomains: gitlab-subdomains -d example.com  
+analyticsrelationships: analyticsrelationships -d example.com
+
+**3. DNS Resolution (High‑Accuracy Filtering)**
+dnsx: dnsx -d example.com -resp -a -aaaa -cname  
+puredns: puredns resolve subs.txt -r resolvers.txt  
+dnstake: dnstake enum --domain example.com  
+dsieve: dsieve -d example.com
+
+**4. Live Host Detection (Aggressive Probing)**
+httpx: httpx -l resolved.txt -status-code -title -tech-detect -cdn -ip  
+smap: smap example.com  
+nmap (manual): nmap -sV example.com
+
+**5. URL & Content Discovery (Deep Crawling)**
+katana: katana -u https://example.com -d 5 -js-crawl  
+hakrawler: hakrawler -url https://example.com  
+gau: gau example.com  
+waybackurls: waybackurls example.com  
+urlfinder: urlfinder -d example.com  
+subjs: subjs -i urls.txt  
+jsluice: jsluice analyze script.js  
+sourcemapper: sourcemapper -i script.js.map
+
+**6. JavaScript & Endpoint Analysis (Aggressive JS Recon)**
+unfurl: unfurl keys < urls.txt  
+jsluice: jsluice analyze script.js  
+subjs: subjs -i urls.txt
+
+**7. Parameter Discovery (High‑Coverage Input Mapping)**
+gf: gf xss < urls.txt  
+qsreplace: cat params.txt | qsreplace  
+gotator: gotator -sub example -perm perms.txt
+
+**8. Behavior Analysis (High‑Signal Testing)**
+nomore403: nomore403 -u https://example.com  
+Web-Cache-Vulnerability-Scanner: python3 scanner.py -u https://example.com  
+ppmap: ppmap -u https://example.com  
+crlfuzz: crlfuzz -u https://example.com  
+dalfox: dalfox url https://example.com
+
+**9. Manual Fuzzing (Controlled Exploration)**
+ffuf: ffuf -u https://example.com/FUZZ -w wordlist.txt  
+VhostFinder: VhostFinder -u https://example.com
+
+**10. Vulnerability Scanning (Manual Trigger Only)**
+nuclei: nuclei -u https://example.com
+
+**11. Utilities (Workflow Enhancers)**
+anew: cat new.txt | anew all.txt  
+notify: notify -bulk  
+enumerepo: enumerepo -d example.com  
+interactsh-client: interactsh-client  
+mapcidr: mapcidr -cidr cidrs.txt  
+sns: sns -d example.com  
+cent: cent -u https://example.com  
+mantra: mantra -u https://example.com
